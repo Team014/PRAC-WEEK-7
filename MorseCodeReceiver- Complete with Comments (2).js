@@ -104,7 +104,8 @@ var MorseCodeData =
  
 };
 
-//Question 1 - Decodes the picture from the camera and converts it to a boolean statement 
+//Question 1 - Decodes the picture from the camera and change it to a boolean statement 
+
 function decodeCameraImage(data)
 {
     var i = 0; // Initialise the variable i = 0

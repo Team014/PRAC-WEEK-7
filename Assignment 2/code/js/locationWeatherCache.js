@@ -126,7 +126,7 @@ function LocationWeatherCache()
 	} ;
 
 	var script = document.createElement('script');
-	script.src = 	"https://api.forecast.io/forecast/cd46e83741e2893f1c3f343bedeed444/LATITUDE,LONGITUDE?callback=this.weatherResponse";
+	script.src = 	"https://api.forecast.io/forecast/cd46e83741e2893f1c3f343bedeed444/37.8267,-122.423?callback=this.weatherResponse";
 	document.body.appendChild(script);
 
     // Private methods:

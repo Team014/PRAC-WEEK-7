@@ -5,13 +5,14 @@
 
 function viewLocation(locationName)
 {
-   //My attempt
-    localStorage.setItem(locationName)
-    
-    
+   for (var i=0, i < locations.length, ++i)
+    {
+        localStorage.getItem(locations[i])
+    }
+      
    // Intial Data
-    //// Save the desired location to local storage
-    //localStorage.setItem(APP_PREFIX + "-selectedLocation", locationName); 
-    //// And load the view location page.
-    //location.href = 'viewlocation.html';
+   //Save the desired location to local storage
+    localStorage.setItem(APP_PREFIX + "-selectedLocation", locationName); 
+    //And load the view location page.
+    location.href = 'viewlocation.html';
 }

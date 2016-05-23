@@ -89,7 +89,7 @@ function LocationWeatherCache()
     //
     this.initialiseFromPDO = function(locationWeatherCachePDO) 
 	{
-		 locations = locationWeatherCachePDO;
+		return parse(localStorage.getitem(ocationWeatherCachePDO));
     };
 
     // Request weather for the location at the given index for the
@@ -104,7 +104,13 @@ function LocationWeatherCache()
     // 
     this.getWeatherAtIndexForDate = function(index, date, callback) 
 	{
-		
+		var locationName = locations[index].Latitude + "," + locations[index].Longitude + "," + date;
+       
+        var script = document.createElement('script');
+	   script.src = 	"https://api.forecast.io/forecast/cd46e83741e2893f1c3f343bedeed444/" + locationName + "/?exclude=[minutely,hourly,alerts,flags,currently,offset]&units=si&callback=this.weatherResponse";
+	   document.body.appendChild(script);
+    
+        callbacks[locationName] = callback;
     };
     
     // This is a callback function passed to forecast.io API calls.
@@ -124,10 +130,6 @@ function LocationWeatherCache()
 	}
 	document.getElementById("outputArea").innerHTML = output;
 	} ;
-
-	var script = document.createElement('script');
-	script.src = 	"https://api.forecast.io/forecast/cd46e83741e2893f1c3f343bedeed444/37.8267,-122.423?callback=this.weatherResponse";
-	document.body.appendChild(script);
 
     // Private methods:
     
@@ -154,12 +156,15 @@ function LocationWeatherCache()
 //
 function loadLocations()
 {
+    return JSON.parse(localStorage.getitem(APP_PREFIX))
 }
 
 // Save the singleton locationWeatherCache to Local Storage.
 //
 function saveLocations()
 {
+    localStorage.setitem(APP_PREFIX),
+    JSON.stringify(APP_PREFIX);
 }
 
 	

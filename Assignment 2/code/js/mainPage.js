@@ -9,10 +9,8 @@ function viewLocation(locationName)
     {
         var locationsList = []
         var storedLocation = localStorage.getItem(locations[i])
-        
-        // Need to convert local storage version from a string to an object
-        locationsList.push(storedLocation)
-        
+        var storedLocationReadable = JSON.parse(storedLocation) 
+        locationsList.push(storedLocationReadable)
         //After this need to set up the HTML to make this array display all locations and their data on the main page
     }
       

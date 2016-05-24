@@ -89,7 +89,7 @@ function LocationWeatherCache()
     //
     this.initialiseFromPDO = function(locationWeatherCachePDO) 
 	{
-		return parse(localStorage.getitem(ocationWeatherCachePDO));
+		return parse(localStorage.getitem(locationWeatherCachePDO));
     };
 
     // Request weather for the location at the given index for the
@@ -126,7 +126,7 @@ function LocationWeatherCache()
 		{
 		output += '<br/>latitude: </b>' + response[i].latitude + 
 			      '<br/>longitude: </b>' + response[i].longitude +
-		          response.weatherboject["daily"]["data"][0] ; //o is for the first element
+		          response.weatherobject["daily"]["data"][0] ; //o is for the first element
 	}
 	document.getElementById("outputArea").innerHTML = output;
 	} ;

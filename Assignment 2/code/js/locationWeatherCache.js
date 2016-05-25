@@ -40,7 +40,7 @@ function LocationWeatherCache()
     this.length = function() 
 	{
 		return locations.length;
-    };
+    	};
     
     // Returns the location object for a given index.
     // Indexes begin at zero.
@@ -48,7 +48,7 @@ function LocationWeatherCache()
     this.locationAtIndex = function(index) 
 	{
 		return locations[index];
-    };
+    	};
 
     // Given a latitude, longitude and nickname, this method saves a 
     // new location into the cache.  It will have an empty 'forecasts'
@@ -61,7 +61,7 @@ function LocationWeatherCache()
 				"Latitude" : latitude,
 				"Longitude" : longitude,
 				"Forecast" : {} 
-		};
+			};
 			locations.push(Location) 
 			
     }
@@ -81,7 +81,7 @@ function LocationWeatherCache()
 	{
 		return locations;
 			
-    };
+    	};
 
     // Given a public-data-only version of the class (such as from
     // local storage), this method will initialise the current
@@ -90,7 +90,7 @@ function LocationWeatherCache()
     this.initialiseFromPDO = function(locationWeatherCachePDO) 
 	{
 		return parse(localStorage.getitem(locationWeatherCachePDO));
-    };
+    	};
 
     // Request weather for the location at the given index for the
     // specified date.  'date' should be JavaScript Date instance.
@@ -106,12 +106,12 @@ function LocationWeatherCache()
 	{
 		var locationName = locations[index].Latitude + "," + locations[index].Longitude + "," + date;
        
-        var script = document.createElement('script');
-	   script.src = 	"https://api.forecast.io/forecast/cd46e83741e2893f1c3f343bedeed444/" + locationName + "/?exclude=[minutely,hourly,alerts,flags,currently,offset]&units=si&callback=this.weatherResponse";
+        	var script = document.createElement('script');
+	   	script.src = 	"https://api.forecast.io/forecast/cd46e83741e2893f1c3f343bedeed444/" + locationName + "/?exclude=[minutely,hourly,alerts,flags,currently,offset]&units=si&callback=this.weatherResponse";
 	   document.body.appendChild(script);
     
-        callbacks[locationName] = callback;
-    };
+        	callbacks[locationName] = callback;
+    	};
     
     // This is a callback function passed to forecast.io API calls.
     // This will be called via JSONP when the API call is loaded.
@@ -127,9 +127,9 @@ function LocationWeatherCache()
 		output += '<br/>latitude: </b>' + response[i].latitude + 
 			      '<br/>longitude: </b>' + response[i].longitude +
 		          response.weatherobject["daily"]["data"][0] ; //o is for the first element
-	}
-	document.getElementById("outputArea").innerHTML = output;
-	} ;
+		}
+		document.getElementById("outputArea").innerHTML = output;
+} ;
 
     // Private methods:
     
